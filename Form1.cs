@@ -38,8 +38,9 @@ namespace musicplayer
         {
             if (Directory.Exists(path))
             {
-                string fileType = "*.mp3";
-                string[] fileNames = Directory.GetFiles(path, fileType);
+                //string fileType = "*.mp3";
+
+                string[] fileNames = Directory.GetFiles(path);
 
                 foreach (string filePath in fileNames)
                 {
