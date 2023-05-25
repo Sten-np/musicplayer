@@ -21,7 +21,7 @@ namespace musicplayer
         public MusicPlayerApp()
         {
             InitializeComponent();
-            SetPath(@"C:\Users\\Sten\\Music\\");
+            SetPath(@"C:\Users\\HP\\Music\\");
             InsertIntoListBox();
 
         }
@@ -78,6 +78,11 @@ namespace musicplayer
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            player.Ctlcontrols.stop();
         }
     }
 }
