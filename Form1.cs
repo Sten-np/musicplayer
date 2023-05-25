@@ -21,9 +21,6 @@ namespace musicplayer
         public MusicPlayerApp()
         {
             InitializeComponent();
-            SetPath(@"C:\Users\\HP\\Music\\");
-            InsertIntoListBox();
-
         }
 
         // Een setter zodat de gebruiker het folderpad kan aanpassen.
@@ -36,10 +33,10 @@ namespace musicplayer
         // in de listBoxSongs wordt gezet om getoont te worden aan de gebruiker.
         public void InsertIntoListBox()
         {
-            if (Directory.Exists(path))
+            if (Directory.Exists(this.path))
             {
 
-                string[] fileNames = Directory.GetFiles(path);
+                string[] fileNames = Directory.GetFiles(this.path);
 
                 foreach (string filePath in fileNames)
                 {
@@ -88,7 +85,8 @@ namespace musicplayer
                     if (nextItem != null)
                     {
                         player.URL = nextItem.ToString();
-                        if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") || nextItem.ToString().Contains(".ogg"))
+                        if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") || 
+                            nextItem.ToString().Contains(".ogg") || nextItem.ToString().Contains(".wav"))
                         {
                             player.Ctlcontrols.play();
                         }
@@ -105,12 +103,18 @@ namespace musicplayer
                 MessageBox.Show("InvalidActiveXStateException occurred: " + ex.Message);
             }
         }
-        
-
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnFolderSelect_Click(object sender, EventArgs e)
+        {
+                string searchQuery = textBoxFileSearch.Text;
+                SetPath(searchQuery);
+                InsertIntoListBox();
+        
         }
     }
 }
