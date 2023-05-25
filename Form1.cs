@@ -69,15 +69,50 @@ namespace musicplayer
                 player.URL = this.selectedSong;
                 player.Ctlcontrols.play();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kon het bestand niet afspelen. " + ex.Message);
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int currentItem = listBoxSongs.SelectedIndex;
+
+                if (currentItem < listBoxSongs.Items.Count - 1)
+                {
+                    object nextItem = listBoxSongs.Items[currentItem + 1];
+                    
+                    if (nextItem != null)
+                    {
+                        player.URL = nextItem.ToString();
+                        if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") || nextItem.ToString().Contains(".ogg"))
+                        {
+                            player.Ctlcontrols.play();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bestand niet in ondersteund formaat!");
+                        }
+                        
+                    }
+                }
+            }
             catch (System.Windows.Forms.AxHost.InvalidActiveXStateException ex)
             {
                 MessageBox.Show("InvalidActiveXStateException occurred: " + ex.Message);
             }
         }
+        
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        
     }
 }
