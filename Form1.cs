@@ -75,9 +75,36 @@ namespace musicplayer
             }
         }
 
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int currentItem = listBoxSongs.SelectedIndex;
+
+                if (currentItem < listBoxSongs.Items.Count - 1)
+                {
+                    object nextItem = listBoxSongs.Items[currentItem + 1];
+                    
+                    if (nextItem != null)
+                    {
+                        player.URL = nextItem.ToString();
+                        player.Ctlcontrols.play();
+                    }
+                }
+            }
+            catch (System.Windows.Forms.AxHost.InvalidActiveXStateException ex)
+            {
+                MessageBox.Show("InvalidActiveXStateException occurred: " + ex.Message);
+            }
+        }
+
+
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        
     }
 }
