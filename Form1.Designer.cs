@@ -199,7 +199,7 @@
             this.trackVolume.Size = new System.Drawing.Size(45, 202);
             this.trackVolume.TabIndex = 11;
             this.trackVolume.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.trackVolume.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            
             // 
             // TextVolume
             // 
@@ -210,7 +210,7 @@
             this.TextVolume.Size = new System.Drawing.Size(48, 13);
             this.TextVolume.TabIndex = 12;
             this.TextVolume.Text = "Volume";
-            this.TextVolume.Click += new System.EventHandler(this.label1_Click);
+            
             // 
             // labelVolume
             // 
