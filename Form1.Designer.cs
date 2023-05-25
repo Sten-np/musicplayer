@@ -41,17 +41,17 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.p_bar = new System.Windows.Forms.ProgressBar();
             this.pic_art = new System.Windows.Forms.PictureBox();
-            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.trackVolume = new System.Windows.Forms.TrackBar();
             this.TextVolume = new System.Windows.Forms.Label();
             this.labelVolume = new System.Windows.Forms.Label();
             this.labelTrackStart = new System.Windows.Forms.Label();
             this.labelTrackEnd = new System.Windows.Forms.Label();
+            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackVolume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -183,22 +183,12 @@
             // pic_art
             // 
             this.pic_art.Image = global::musicplayer.Properties.Resources.rap_mixtape_cover_art_design_template___Gemaakt_met_PosterMyWall;
-            this.pic_art.Location = new System.Drawing.Point(61, 118);
+            this.pic_art.Location = new System.Drawing.Point(63, 134);
             this.pic_art.Name = "pic_art";
             this.pic_art.Size = new System.Drawing.Size(223, 233);
             this.pic_art.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_art.TabIndex = 9;
             this.pic_art.TabStop = false;
-            // 
-            // player
-            // 
-            this.player.Dock = System.Windows.Forms.DockStyle.Top;
-            this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(0, 34);
-            this.player.Name = "player";
-            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(800, 61);
-            this.player.TabIndex = 10;
             // 
             // trackVolume
             // 
@@ -238,7 +228,7 @@
             this.labelTrackStart.BackColor = System.Drawing.Color.Black;
             this.labelTrackStart.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTrackStart.ForeColor = System.Drawing.Color.OrangeRed;
-            this.labelTrackStart.Location = new System.Drawing.Point(20, 47);
+            this.labelTrackStart.Location = new System.Drawing.Point(20, 56);
             this.labelTrackStart.Name = "labelTrackStart";
             this.labelTrackStart.Size = new System.Drawing.Size(76, 34);
             this.labelTrackStart.TabIndex = 14;
@@ -250,11 +240,21 @@
             this.labelTrackEnd.BackColor = System.Drawing.Color.Black;
             this.labelTrackEnd.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTrackEnd.ForeColor = System.Drawing.Color.OrangeRed;
-            this.labelTrackEnd.Location = new System.Drawing.Point(704, 47);
+            this.labelTrackEnd.Location = new System.Drawing.Point(704, 56);
             this.labelTrackEnd.Name = "labelTrackEnd";
             this.labelTrackEnd.Size = new System.Drawing.Size(76, 34);
             this.labelTrackEnd.TabIndex = 15;
             this.labelTrackEnd.Text = "00:00";
+            // 
+            // player
+            // 
+            this.player.Dock = System.Windows.Forms.DockStyle.Top;
+            this.player.Enabled = true;
+            this.player.Location = new System.Drawing.Point(0, 34);
+            this.player.Name = "player";
+            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
+            this.player.Size = new System.Drawing.Size(800, 78);
+            this.player.TabIndex = 10;
             // 
             // MusicPlayerApp
             // 
@@ -285,8 +285,8 @@
             this.TopPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackVolume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
