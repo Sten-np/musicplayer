@@ -61,27 +61,31 @@
             this.TopPanel.Controls.Add(this.lblLogo);
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(800, 34);
+            this.TopPanel.Size = new System.Drawing.Size(1067, 42);
             this.TopPanel.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(764, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(1019, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 34);
+            this.pictureBox1.Size = new System.Drawing.Size(48, 42);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblLogo
             // 
             this.lblLogo.AutoSize = true;
             this.lblLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogo.Location = new System.Drawing.Point(8, 9);
+            this.lblLogo.Location = new System.Drawing.Point(11, 11);
+            this.lblLogo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(88, 20);
+            this.lblLogo.Size = new System.Drawing.Size(104, 25);
             this.lblLogo.TabIndex = 0;
             this.lblLogo.Text = "BeatBlast";
             // 
@@ -89,10 +93,11 @@
             // 
             this.listBoxSongs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxSongs.FormattingEnabled = true;
-            this.listBoxSongs.ItemHeight = 18;
-            this.listBoxSongs.Location = new System.Drawing.Point(367, 149);
+            this.listBoxSongs.ItemHeight = 24;
+            this.listBoxSongs.Location = new System.Drawing.Point(489, 183);
+            this.listBoxSongs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBoxSongs.Name = "listBoxSongs";
-            this.listBoxSongs.Size = new System.Drawing.Size(367, 202);
+            this.listBoxSongs.Size = new System.Drawing.Size(488, 244);
             this.listBoxSongs.TabIndex = 1;
             // 
             // btnSelectSong
@@ -101,12 +106,14 @@
             this.btnSelectSong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelectSong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelectSong.ForeColor = System.Drawing.Color.White;
-            this.btnSelectSong.Location = new System.Drawing.Point(537, 410);
+            this.btnSelectSong.Location = new System.Drawing.Point(716, 505);
+            this.btnSelectSong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSelectSong.Name = "btnSelectSong";
-            this.btnSelectSong.Size = new System.Drawing.Size(251, 28);
+            this.btnSelectSong.Size = new System.Drawing.Size(335, 34);
             this.btnSelectSong.TabIndex = 2;
             this.btnSelectSong.Text = "Select Song";
             this.btnSelectSong.UseVisualStyleBackColor = false;
+            this.btnSelectSong.Click += new System.EventHandler(this.btnSelectSong_Click);
             // 
             // btnPlayPause
             // 
@@ -114,12 +121,14 @@
             this.btnPlayPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlayPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlayPause.ForeColor = System.Drawing.Color.White;
-            this.btnPlayPause.Location = new System.Drawing.Point(114, 411);
+            this.btnPlayPause.Location = new System.Drawing.Point(152, 506);
+            this.btnPlayPause.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPlayPause.Name = "btnPlayPause";
-            this.btnPlayPause.Size = new System.Drawing.Size(130, 28);
+            this.btnPlayPause.Size = new System.Drawing.Size(173, 34);
             this.btnPlayPause.TabIndex = 3;
             this.btnPlayPause.Text = "▶ / II";
             this.btnPlayPause.UseVisualStyleBackColor = false;
+            this.btnPlayPause.Click += new System.EventHandler(this.btnPlayPause_Click);
             // 
             // btnNext
             // 
@@ -127,9 +136,10 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Location = new System.Drawing.Point(250, 411);
+            this.btnNext.Location = new System.Drawing.Point(333, 506);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(85, 28);
+            this.btnNext.Size = new System.Drawing.Size(113, 34);
             this.btnNext.TabIndex = 4;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
@@ -140,9 +150,10 @@
             this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrevious.ForeColor = System.Drawing.Color.White;
-            this.btnPrevious.Location = new System.Drawing.Point(21, 411);
+            this.btnPrevious.Location = new System.Drawing.Point(28, 506);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(84, 28);
+            this.btnPrevious.Size = new System.Drawing.Size(112, 34);
             this.btnPrevious.TabIndex = 5;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = false;
@@ -153,9 +164,10 @@
             this.btnRepeat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRepeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRepeat.ForeColor = System.Drawing.Color.White;
-            this.btnRepeat.Location = new System.Drawing.Point(341, 411);
+            this.btnRepeat.Location = new System.Drawing.Point(455, 506);
+            this.btnRepeat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRepeat.Name = "btnRepeat";
-            this.btnRepeat.Size = new System.Drawing.Size(85, 28);
+            this.btnRepeat.Size = new System.Drawing.Size(113, 34);
             this.btnRepeat.TabIndex = 6;
             this.btnRepeat.Text = "Repeat";
             this.btnRepeat.UseVisualStyleBackColor = false;
@@ -166,59 +178,63 @@
             this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStop.ForeColor = System.Drawing.Color.White;
-            this.btnStop.Location = new System.Drawing.Point(432, 410);
+            this.btnStop.Location = new System.Drawing.Point(576, 505);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(88, 28);
+            this.btnStop.Size = new System.Drawing.Size(117, 34);
             this.btnStop.TabIndex = 7;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = false;
             // 
             // p_bar
             // 
-            this.p_bar.Location = new System.Drawing.Point(21, 381);
+            this.p_bar.Location = new System.Drawing.Point(28, 469);
+            this.p_bar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.p_bar.Name = "p_bar";
-            this.p_bar.Size = new System.Drawing.Size(767, 23);
+            this.p_bar.Size = new System.Drawing.Size(1023, 28);
             this.p_bar.TabIndex = 8;
             // 
             // pic_art
             // 
             this.pic_art.Image = global::musicplayer.Properties.Resources.rap_mixtape_cover_art_design_template___Gemaakt_met_PosterMyWall;
-            this.pic_art.Location = new System.Drawing.Point(63, 134);
+            this.pic_art.Location = new System.Drawing.Point(84, 165);
+            this.pic_art.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pic_art.Name = "pic_art";
-            this.pic_art.Size = new System.Drawing.Size(223, 233);
+            this.pic_art.Size = new System.Drawing.Size(297, 287);
             this.pic_art.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_art.TabIndex = 9;
             this.pic_art.TabStop = false;
             // 
             // trackVolume
             // 
-            this.trackVolume.Location = new System.Drawing.Point(740, 149);
+            this.trackVolume.Location = new System.Drawing.Point(987, 183);
+            this.trackVolume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.trackVolume.Maximum = 100;
             this.trackVolume.Name = "trackVolume";
             this.trackVolume.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackVolume.Size = new System.Drawing.Size(45, 202);
+            this.trackVolume.Size = new System.Drawing.Size(56, 249);
             this.trackVolume.TabIndex = 11;
             this.trackVolume.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            
             // 
             // TextVolume
             // 
             this.TextVolume.AutoSize = true;
             this.TextVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextVolume.Location = new System.Drawing.Point(740, 354);
+            this.TextVolume.Location = new System.Drawing.Point(987, 436);
+            this.TextVolume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TextVolume.Name = "TextVolume";
-            this.TextVolume.Size = new System.Drawing.Size(48, 13);
+            this.TextVolume.Size = new System.Drawing.Size(61, 17);
             this.TextVolume.TabIndex = 12;
             this.TextVolume.Text = "Volume";
-            
             // 
             // labelVolume
             // 
             this.labelVolume.AutoSize = true;
             this.labelVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVolume.Location = new System.Drawing.Point(743, 136);
+            this.labelVolume.Location = new System.Drawing.Point(991, 167);
+            this.labelVolume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelVolume.Name = "labelVolume";
-            this.labelVolume.Size = new System.Drawing.Size(37, 13);
+            this.labelVolume.Size = new System.Drawing.Size(48, 17);
             this.labelVolume.TabIndex = 13;
             this.labelVolume.Text = "100%";
             // 
@@ -228,9 +244,10 @@
             this.labelTrackStart.BackColor = System.Drawing.Color.Black;
             this.labelTrackStart.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTrackStart.ForeColor = System.Drawing.Color.OrangeRed;
-            this.labelTrackStart.Location = new System.Drawing.Point(20, 56);
+            this.labelTrackStart.Location = new System.Drawing.Point(27, 69);
+            this.labelTrackStart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTrackStart.Name = "labelTrackStart";
-            this.labelTrackStart.Size = new System.Drawing.Size(76, 34);
+            this.labelTrackStart.Size = new System.Drawing.Size(97, 42);
             this.labelTrackStart.TabIndex = 14;
             this.labelTrackStart.Text = "00:00";
             // 
@@ -240,9 +257,10 @@
             this.labelTrackEnd.BackColor = System.Drawing.Color.Black;
             this.labelTrackEnd.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTrackEnd.ForeColor = System.Drawing.Color.OrangeRed;
-            this.labelTrackEnd.Location = new System.Drawing.Point(704, 56);
+            this.labelTrackEnd.Location = new System.Drawing.Point(939, 69);
+            this.labelTrackEnd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTrackEnd.Name = "labelTrackEnd";
-            this.labelTrackEnd.Size = new System.Drawing.Size(76, 34);
+            this.labelTrackEnd.Size = new System.Drawing.Size(97, 42);
             this.labelTrackEnd.TabIndex = 15;
             this.labelTrackEnd.Text = "00:00";
             // 
@@ -250,17 +268,18 @@
             // 
             this.player.Dock = System.Windows.Forms.DockStyle.Top;
             this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(0, 34);
+            this.player.Location = new System.Drawing.Point(0, 42);
+            this.player.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.player.Name = "player";
             this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(800, 78);
+            this.player.Size = new System.Drawing.Size(1067, 78);
             this.player.TabIndex = 10;
             // 
             // MusicPlayerApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.labelTrackEnd);
             this.Controls.Add(this.labelTrackStart);
             this.Controls.Add(this.labelVolume);
@@ -278,6 +297,7 @@
             this.Controls.Add(this.listBoxSongs);
             this.Controls.Add(this.TopPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MusicPlayerApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Music Player App";

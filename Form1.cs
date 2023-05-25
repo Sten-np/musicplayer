@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AxWMPLib;
+using WMPLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,7 @@ namespace musicplayer
     {
         private static string[] songs;
         private String path = @"";
+        private String selectedSong = @"";
         public MusicPlayerApp()
         {
             InitializeComponent();
@@ -41,13 +44,40 @@ namespace musicplayer
                 foreach (string filePath in fileNames)
                 {
                     string fileName = Path.GetFileName(filePath);
-                    listBoxSongs.Items.Add(fileName);
+                    listBoxSongs.Items.Add(filePath);
                 }
             }
             else
             {
                 listBoxSongs.Items.Add("Directory does not exist!");
             }
+        }
+
+        private void btnSelectSong_Click(object sender, EventArgs e)
+        {
+            if(listBoxSongs.SelectedItem != null)
+            {
+                string selectedItem = listBoxSongs.SelectedItem.ToString();
+                this.selectedSong = selectedItem;
+            }
+        }
+
+        private void btnPlayPause_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                player.URL = this.selectedSong;
+                player.Ctlcontrols.play();
+            }
+            catch (System.Windows.Forms.AxHost.InvalidActiveXStateException ex)
+            {
+                MessageBox.Show("InvalidActiveXStateException occurred: " + ex.Message);
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
