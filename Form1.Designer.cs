@@ -42,7 +42,7 @@
             this.p_bar = new System.Windows.Forms.ProgressBar();
             this.pic_art = new System.Windows.Forms.PictureBox();
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
-            this.trackVolume = new System.Windows.Forms.TrackBar();
+            this.track_volume = new System.Windows.Forms.TrackBar();
             this.TextVolume = new System.Windows.Forms.Label();
             this.labelVolume = new System.Windows.Forms.Label();
             this.labelTrackStart = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackVolume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.track_volume)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -200,16 +200,16 @@
             this.player.Size = new System.Drawing.Size(800, 61);
             this.player.TabIndex = 10;
             // 
-            // trackVolume
+            // track_volume
             // 
-            this.trackVolume.Location = new System.Drawing.Point(740, 149);
-            this.trackVolume.Maximum = 100;
-            this.trackVolume.Name = "trackVolume";
-            this.trackVolume.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackVolume.Size = new System.Drawing.Size(45, 202);
-            this.trackVolume.TabIndex = 11;
-            this.trackVolume.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.trackVolume.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.track_volume.Location = new System.Drawing.Point(740, 149);
+            this.track_volume.Maximum = 100;
+            this.track_volume.Name = "track_volume";
+            this.track_volume.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.track_volume.Size = new System.Drawing.Size(45, 202);
+            this.track_volume.TabIndex = 11;
+            this.track_volume.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.track_volume.Scroll += new System.EventHandler(this.track_volume_Scroll);
             // 
             // TextVolume
             // 
@@ -265,7 +265,7 @@
             this.Controls.Add(this.labelTrackStart);
             this.Controls.Add(this.labelVolume);
             this.Controls.Add(this.TextVolume);
-            this.Controls.Add(this.trackVolume);
+            this.Controls.Add(this.track_volume);
             this.Controls.Add(this.player);
             this.Controls.Add(this.pic_art);
             this.Controls.Add(this.p_bar);
@@ -286,7 +286,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackVolume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.track_volume)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,7 +307,7 @@
         private System.Windows.Forms.ProgressBar p_bar;
         private System.Windows.Forms.PictureBox pic_art;
         private AxWMPLib.AxWindowsMediaPlayer player;
-        private System.Windows.Forms.TrackBar trackVolume;
+        private System.Windows.Forms.TrackBar track_volume;
         private System.Windows.Forms.Label TextVolume;
         private System.Windows.Forms.Label labelVolume;
         private System.Windows.Forms.Label labelTrackStart;

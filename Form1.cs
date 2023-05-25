@@ -15,11 +15,16 @@ namespace musicplayer
         public MusicPlayerApp()
         {
             InitializeComponent();
+            track_volume.Value = 50;
+            labelVolume.Text = "50%";
+            
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
+        private void track_volume_Scroll(object sender, EventArgs e)
         {
-
+            player.settings.volume = track_volume.Value;
+            labelVolume.Text = track_volume.Value.ToString() + "%";
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
