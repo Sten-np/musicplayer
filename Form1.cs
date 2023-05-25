@@ -69,9 +69,9 @@ namespace musicplayer
                 player.URL = this.selectedSong;
                 player.Ctlcontrols.play();
             }
-            catch (System.Windows.Forms.AxHost.InvalidActiveXStateException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("InvalidActiveXStateException occurred: " + ex.Message);
+                MessageBox.Show("Kon het bestand niet afspelen. " + ex.Message);
             }
         }
 
@@ -88,7 +88,15 @@ namespace musicplayer
                     if (nextItem != null)
                     {
                         player.URL = nextItem.ToString();
-                        player.Ctlcontrols.play();
+                        if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") || nextItem.ToString().Contains(".ogg"))
+                        {
+                            player.Ctlcontrols.play();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bestand niet in ondersteund formaat!");
+                        }
+                        
                     }
                 }
             }
@@ -97,7 +105,7 @@ namespace musicplayer
                 MessageBox.Show("InvalidActiveXStateException occurred: " + ex.Message);
             }
         }
-
+        
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
