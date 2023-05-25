@@ -47,6 +47,8 @@
             this.labelTrackStart = new System.Windows.Forms.Label();
             this.labelTrackEnd = new System.Windows.Forms.Label();
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
+            this.btnFolderSelect = new System.Windows.Forms.Button();
+            this.textBoxFileSearch = new System.Windows.Forms.TextBox();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
@@ -62,7 +64,7 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(800, 34);
+            this.TopPanel.Size = new System.Drawing.Size(801, 34);
             this.TopPanel.TabIndex = 0;
             // 
             // pictureBox1
@@ -91,7 +93,7 @@
             this.listBoxSongs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxSongs.FormattingEnabled = true;
             this.listBoxSongs.ItemHeight = 18;
-            this.listBoxSongs.Location = new System.Drawing.Point(367, 149);
+            this.listBoxSongs.Location = new System.Drawing.Point(341, 167);
             this.listBoxSongs.Name = "listBoxSongs";
             this.listBoxSongs.Size = new System.Drawing.Size(367, 184);
             this.listBoxSongs.TabIndex = 1;
@@ -187,7 +189,7 @@
             // pic_art
             // 
             this.pic_art.Image = global::musicplayer.Properties.Resources.rap_mixtape_cover_art_design_template___Gemaakt_met_PosterMyWall;
-            this.pic_art.Location = new System.Drawing.Point(63, 134);
+            this.pic_art.Location = new System.Drawing.Point(39, 134);
             this.pic_art.Name = "pic_art";
             this.pic_art.Size = new System.Drawing.Size(223, 233);
             this.pic_art.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,7 +232,7 @@
             this.labelTrackStart.BackColor = System.Drawing.Color.Black;
             this.labelTrackStart.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTrackStart.ForeColor = System.Drawing.Color.OrangeRed;
-            this.labelTrackStart.Location = new System.Drawing.Point(20, 56);
+            this.labelTrackStart.Location = new System.Drawing.Point(20, 46);
             this.labelTrackStart.Name = "labelTrackStart";
             this.labelTrackStart.Size = new System.Drawing.Size(76, 34);
             this.labelTrackStart.TabIndex = 14;
@@ -242,7 +244,7 @@
             this.labelTrackEnd.BackColor = System.Drawing.Color.Black;
             this.labelTrackEnd.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTrackEnd.ForeColor = System.Drawing.Color.OrangeRed;
-            this.labelTrackEnd.Location = new System.Drawing.Point(704, 56);
+            this.labelTrackEnd.Location = new System.Drawing.Point(704, 46);
             this.labelTrackEnd.Name = "labelTrackEnd";
             this.labelTrackEnd.Size = new System.Drawing.Size(76, 34);
             this.labelTrackEnd.TabIndex = 15;
@@ -255,14 +257,36 @@
             this.player.Location = new System.Drawing.Point(0, 34);
             this.player.Name = "player";
             this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(800, 78);
+            this.player.Size = new System.Drawing.Size(801, 56);
             this.player.TabIndex = 10;
+            // 
+            // btnFolderSelect
+            // 
+            this.btnFolderSelect.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnFolderSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFolderSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFolderSelect.ForeColor = System.Drawing.Color.White;
+            this.btnFolderSelect.Location = new System.Drawing.Point(666, 126);
+            this.btnFolderSelect.Name = "btnFolderSelect";
+            this.btnFolderSelect.Size = new System.Drawing.Size(42, 23);
+            this.btnFolderSelect.TabIndex = 16;
+            this.btnFolderSelect.Text = "•••";
+            this.btnFolderSelect.UseVisualStyleBackColor = false;
+            // 
+            // textBoxFileSearch
+            // 
+            this.textBoxFileSearch.Location = new System.Drawing.Point(467, 126);
+            this.textBoxFileSearch.Name = "textBoxFileSearch";
+            this.textBoxFileSearch.Size = new System.Drawing.Size(193, 20);
+            this.textBoxFileSearch.TabIndex = 17;
             // 
             // MusicPlayerApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(801, 450);
+            this.Controls.Add(this.textBoxFileSearch);
+            this.Controls.Add(this.btnFolderSelect);
             this.Controls.Add(this.labelTrackEnd);
             this.Controls.Add(this.labelTrackStart);
             this.Controls.Add(this.labelVolume);
@@ -314,6 +338,8 @@
         private System.Windows.Forms.Label labelVolume;
         private System.Windows.Forms.Label labelTrackStart;
         private System.Windows.Forms.Label labelTrackEnd;
+        private System.Windows.Forms.Button btnFolderSelect;
+        private System.Windows.Forms.TextBox textBoxFileSearch;
     }
 }
 
