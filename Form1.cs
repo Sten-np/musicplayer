@@ -1,4 +1,4 @@
-﻿using AxWMPLib;
+using AxWMPLib;
 using WMPLib;
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace musicplayer
         public MusicPlayerApp()
         {
             InitializeComponent();
-            SetPath(@"C:\Users\\Sten\\Music\\");
+            SetPath(@"C:\Users\\HP\\Music\\");
             InsertIntoListBox();
 
         }
@@ -112,7 +112,5 @@ namespace musicplayer
         {
             Application.Exit();
         }
-
-        
     }
 }
