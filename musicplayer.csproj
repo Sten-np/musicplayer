@@ -105,5 +105,17 @@
   <ItemGroup>
     <None Include="Resources\rap mixtape cover art design template - Gemaakt met PosterMyWall.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimalise.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimalise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

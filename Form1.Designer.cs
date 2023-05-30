@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MusicPlayerApp));
             this.TopPanel = new System.Windows.Forms.Panel();
+            this.Minimalized = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLogo = new System.Windows.Forms.Label();
             this.listBoxSongs = new System.Windows.Forms.ListBox();
@@ -40,25 +41,28 @@
             this.btnRepeat = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.p_bar = new System.Windows.Forms.ProgressBar();
-            this.pic_art = new System.Windows.Forms.PictureBox();
             this.trackVolume = new System.Windows.Forms.TrackBar();
             this.TextVolume = new System.Windows.Forms.Label();
             this.labelVolume = new System.Windows.Forms.Label();
             this.labelTrackStart = new System.Windows.Forms.Label();
             this.labelTrackEnd = new System.Windows.Forms.Label();
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
-            this.btnFolderSelect = new System.Windows.Forms.Button();
-            this.textBoxFileSearch = new System.Windows.Forms.TextBox();
+            this.pic_art = new System.Windows.Forms.PictureBox();
+            this.btnFolderSelect = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.TopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimalized)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFolderSelect)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
             // 
             this.TopPanel.BackColor = System.Drawing.Color.LightCyan;
+            this.TopPanel.Controls.Add(this.Minimalized);
             this.TopPanel.Controls.Add(this.pictureBox1);
             this.TopPanel.Controls.Add(this.lblLogo);
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -67,6 +71,17 @@
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(1068, 42);
             this.TopPanel.TabIndex = 0;
+            // 
+            // Minimalized
+            // 
+            this.Minimalized.Image = global::musicplayer.Properties.Resources.minimalise1;
+            this.Minimalized.Location = new System.Drawing.Point(964, 0);
+            this.Minimalized.Name = "Minimalized";
+            this.Minimalized.Size = new System.Drawing.Size(48, 42);
+            this.Minimalized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Minimalized.TabIndex = 2;
+            this.Minimalized.TabStop = false;
+            this.Minimalized.Click += new System.EventHandler(this.Minimalized_Click);
             // 
             // pictureBox1
             // 
@@ -188,6 +203,7 @@
             this.btnStop.TabIndex = 7;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = false;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // p_bar
             // 
@@ -196,17 +212,6 @@
             this.p_bar.Name = "p_bar";
             this.p_bar.Size = new System.Drawing.Size(1023, 28);
             this.p_bar.TabIndex = 8;
-            // 
-            // pic_art
-            // 
-            this.pic_art.Image = global::musicplayer.Properties.Resources.rap_mixtape_cover_art_design_template___Gemaakt_met_PosterMyWall;
-            this.pic_art.Location = new System.Drawing.Point(52, 165);
-            this.pic_art.Margin = new System.Windows.Forms.Padding(4);
-            this.pic_art.Name = "pic_art";
-            this.pic_art.Size = new System.Drawing.Size(297, 287);
-            this.pic_art.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_art.TabIndex = 9;
-            this.pic_art.TabStop = false;
             // 
             // trackVolume
             // 
@@ -278,36 +283,42 @@
             this.player.Size = new System.Drawing.Size(1068, 56);
             this.player.TabIndex = 10;
             // 
+            // pic_art
+            // 
+            this.pic_art.Image = global::musicplayer.Properties.Resources.rap_mixtape_cover_art_design_template___Gemaakt_met_PosterMyWall;
+            this.pic_art.Location = new System.Drawing.Point(52, 165);
+            this.pic_art.Margin = new System.Windows.Forms.Padding(4);
+            this.pic_art.Name = "pic_art";
+            this.pic_art.Size = new System.Drawing.Size(297, 287);
+            this.pic_art.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_art.TabIndex = 9;
+            this.pic_art.TabStop = false;
+            // 
             // btnFolderSelect
             // 
-            this.btnFolderSelect.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnFolderSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFolderSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFolderSelect.ForeColor = System.Drawing.Color.White;
-            this.btnFolderSelect.Location = new System.Drawing.Point(887, 155);
-            this.btnFolderSelect.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFolderSelect.Image = global::musicplayer.Properties.Resources.folder1;
+            this.btnFolderSelect.Location = new System.Drawing.Point(455, 167);
             this.btnFolderSelect.Name = "btnFolderSelect";
-            this.btnFolderSelect.Size = new System.Drawing.Size(56, 22);
+            this.btnFolderSelect.Size = new System.Drawing.Size(41, 32);
+            this.btnFolderSelect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnFolderSelect.TabIndex = 16;
-            this.btnFolderSelect.Text = "•••";
-            this.btnFolderSelect.UseVisualStyleBackColor = false;
-            this.btnFolderSelect.Click += new System.EventHandler(this.btnFolderSelect_Click);
+            this.btnFolderSelect.TabStop = false;
+            this.btnFolderSelect.Click += new System.EventHandler(this.btnFolderSelect_Click_1);
             // 
-            // textBoxFileSearch
+            // label1
             // 
-            this.textBoxFileSearch.Location = new System.Drawing.Point(623, 155);
-            this.textBoxFileSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxFileSearch.Name = "textBoxFileSearch";
-            this.textBoxFileSearch.Size = new System.Drawing.Size(256, 22);
-            this.textBoxFileSearch.TabIndex = 17;
-            this.textBoxFileSearch.Text = "Hier uw map met muziek erin";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(808, 183);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 17;
             // 
             // MusicPlayerApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1068, 554);
-            this.Controls.Add(this.textBoxFileSearch);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFolderSelect);
             this.Controls.Add(this.labelTrackEnd);
             this.Controls.Add(this.labelTrackStart);
@@ -332,10 +343,12 @@
             this.Text = "Music Player App";
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimalized)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_art)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackVolume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_art)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFolderSelect)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,8 +374,9 @@
         private System.Windows.Forms.Label labelVolume;
         private System.Windows.Forms.Label labelTrackStart;
         private System.Windows.Forms.Label labelTrackEnd;
-        private System.Windows.Forms.Button btnFolderSelect;
-        private System.Windows.Forms.TextBox textBoxFileSearch;
+        private System.Windows.Forms.PictureBox Minimalized;
+        private System.Windows.Forms.PictureBox btnFolderSelect;
+        private System.Windows.Forms.Label label1;
     }
 }
 

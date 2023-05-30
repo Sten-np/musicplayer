@@ -16,11 +16,16 @@ namespace musicplayer
     public partial class MusicPlayerApp : Form
     {
         private static string[] songs;
+        private int count;
         private String path = @"";
         private String selectedSong = @"";
+
+        //De constructor voor de class MusicPlayerApp. Met daarin de componenten die worden meteen ingeladen.
+        // en de player.Hide() die ervoor zorgt dat de standaard media player niet zichtbaar is.
         public MusicPlayerApp()
         {
             InitializeComponent();
+            player.Hide();
         }
 
         // Een setter zodat de gebruiker het folderpad kan aanpassen.
@@ -37,7 +42,8 @@ namespace musicplayer
             {
 
                 string[] fileNames = Directory.GetFiles(this.path);
-
+                this.count = fileNames.Count();
+                label1.Text = this.count + " files loaded in.";
                 foreach (string filePath in fileNames)
                 {
                     string fileName = Path.GetFileName(filePath);
@@ -109,12 +115,26 @@ namespace musicplayer
             Application.Exit();
         }
 
-        private void btnFolderSelect_Click(object sender, EventArgs e)
+        private void btnFolderSelect_Click_1(object sender, EventArgs e)
         {
-                string searchQuery = textBoxFileSearch.Text;
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
+                dialog.ShowDialog();
+
+                string searchQuery = dialog.SelectedPath;
                 SetPath(searchQuery);
                 InsertIntoListBox();
-        
         }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            player.Ctlcontrols.stop();
+            
+        }
+
+        private void Minimalized_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
     }
 }
