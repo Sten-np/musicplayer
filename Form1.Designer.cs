@@ -189,6 +189,7 @@
             this.btnRepeat.TabIndex = 6;
             this.btnRepeat.Text = "Repeat";
             this.btnRepeat.UseVisualStyleBackColor = false;
+            this.btnRepeat.Click += new System.EventHandler(this.btnRepeat_Click);
             // 
             // btnStop
             // 

@@ -119,7 +119,6 @@ namespace musicplayer
         {
                 FolderBrowserDialog dialog = new FolderBrowserDialog();
                 dialog.ShowDialog();
-
                 string searchQuery = dialog.SelectedPath;
                 SetPath(searchQuery);
                 InsertIntoListBox();
@@ -128,12 +127,16 @@ namespace musicplayer
         private void btnStop_Click(object sender, EventArgs e)
         {
             player.Ctlcontrols.stop();
-            
         }
 
         private void Minimalized_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnRepeat_Click(object sender, EventArgs e)
+        {
+            player.settings.setMode("loop", true);
         }
 
     }
