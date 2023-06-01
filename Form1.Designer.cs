@@ -50,6 +50,7 @@
             this.pic_art = new System.Windows.Forms.PictureBox();
             this.btnFolderSelect = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimalized)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,11 +58,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFolderSelect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
             // 
             this.TopPanel.BackColor = System.Drawing.Color.LightCyan;
+            this.TopPanel.Controls.Add(this.pictureBox2);
             this.TopPanel.Controls.Add(this.Minimalized);
             this.TopPanel.Controls.Add(this.pictureBox1);
             this.TopPanel.Controls.Add(this.lblLogo);
@@ -314,6 +317,16 @@
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 17;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::musicplayer.Properties.Resources.maximize;
+            this.pictureBox2.Location = new System.Drawing.Point(910, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 42);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
             // MusicPlayerApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -350,6 +363,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFolderSelect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,6 +392,7 @@
         private System.Windows.Forms.PictureBox Minimalized;
         private System.Windows.Forms.PictureBox btnFolderSelect;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
