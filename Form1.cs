@@ -47,7 +47,6 @@ namespace musicplayer
                 label1.Text = this.count + " files loaded in.";
                 foreach (string filePath in this.songs)
                 {
-                    string fileName = Path.GetFileName(filePath);
                     listBoxSongs.Items.Add(filePath);
                 }  
             }
@@ -72,6 +71,7 @@ namespace musicplayer
             {
                 player.URL = this.selectedSong;
                 player.Ctlcontrols.play();
+                
             }
             catch (Exception ex)
             {
