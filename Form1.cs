@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace musicplayer
 {
@@ -48,7 +49,6 @@ namespace musicplayer
                 {
                     string fileName = Path.GetFileName(filePath);
                     listBoxSongs.Items.Add(filePath);
-                    
                 }  
             }
             else
@@ -84,7 +84,7 @@ namespace musicplayer
             try
             {
                 int currentItem = listBoxSongs.SelectedIndex;
-
+                
                 if (currentItem < listBoxSongs.Items.Count - 1)
                 {
                     object nextItem = listBoxSongs.Items[currentItem + 1];
@@ -95,6 +95,7 @@ namespace musicplayer
                         if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") || 
                             nextItem.ToString().Contains(".ogg") || nextItem.ToString().Contains(".wav"))
                         {
+                            listBoxSongs.SelectedIndex = currentItem + 1;
                             player.Ctlcontrols.play();
                         }
                         else
@@ -161,6 +162,5 @@ namespace musicplayer
         {
             player.settings.setMode("loop", true);
         }
-
     }
 }
