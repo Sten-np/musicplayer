@@ -134,6 +134,33 @@ namespace musicplayer
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying) 
+            {
+                p_bar.Maximum = (int)player.Ctlcontrols.currentItem.duration;
+                p_bar.Value = (int)player.Ctlcontrols.currentPosition;
+            }
+            try
+            {
+                labelTrackStart.Text = player.Ctlcontrols.currentPositionString;
+                labelTrackEnd.Text = player.Ctlcontrols.currentItem.durationString.ToString();
+            }
+            catch 
+            {
+            
+            }
+        }
+
+        private void p_bar_MouseDown(object sender, MouseEventArgs e)
+        {
+            player.Ctlcontrols.currentPosition = player.currentMedia.duration * e.X / p_bar.Width;
+        }
+
+        private void listBoxSongs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        
+        }
         private void btnRepeat_Click(object sender, EventArgs e)
         {
             player.settings.setMode("loop", true);
