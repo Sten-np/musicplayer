@@ -15,7 +15,7 @@ namespace musicplayer
 {
     public partial class MusicPlayerApp : Form
     {
-        private static string[] songs;
+        private string[] songs;
         private int count;
         private String path = @"";
         private String selectedSong = @"";
@@ -40,15 +40,16 @@ namespace musicplayer
         {
             if (Directory.Exists(this.path))
             {
-
-                string[] fileNames = Directory.GetFiles(this.path);
-                this.count = fileNames.Count();
+                this.songs = Directory.GetFiles(this.path);
+                this.count = this.songs.Count();
+                this.songs.Append(this.path);
                 label1.Text = this.count + " files loaded in.";
-                foreach (string filePath in fileNames)
+                foreach (string filePath in this.songs)
                 {
                     string fileName = Path.GetFileName(filePath);
                     listBoxSongs.Items.Add(filePath);
-                }
+                    
+                }  
             }
             else
             {
@@ -100,7 +101,6 @@ namespace musicplayer
                         {
                             MessageBox.Show("Bestand niet in ondersteund formaat!");
                         }
-                        
                     }
                 }
             }
@@ -157,10 +157,6 @@ namespace musicplayer
             player.Ctlcontrols.currentPosition = player.currentMedia.duration * e.X / p_bar.Width;
         }
 
-        private void listBoxSongs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        
-        }
         private void btnRepeat_Click(object sender, EventArgs e)
         {
             player.settings.setMode("loop", true);
