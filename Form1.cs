@@ -20,6 +20,8 @@ namespace musicplayer
         private int count;
         private String path = @"";
         private String selectedSong = @"";
+        private String songName;
+
 
         //De constructor voor de class MusicPlayerApp. Met daarin de componenten die worden meteen ingeladen.
         // en de player.Hide() die ervoor zorgt dat de standaard media player niet zichtbaar is.
@@ -29,6 +31,7 @@ namespace musicplayer
             trackVolume.Value = 50;
             labelVolume.Text = "50%";
             player.Hide();
+            player.PlayStateChange += Player_PlayStateChange;
         }
 
         // Een setter zodat de gebruiker het folderpad kan aanpassen.
@@ -39,6 +42,7 @@ namespace musicplayer
 
         // methode die kijkt of de folder waarin de muziek hoort te staan bestaat. Bestaat hij wel? Dan worden de 'songs' in een array gezet die vervolgens 
         // in de listBoxSongs wordt gezet om getoont te worden aan de gebruiker.
+
         public void InsertIntoListBox()
         {
             if (Directory.Exists(this.path))
@@ -47,11 +51,16 @@ namespace musicplayer
                 this.count = this.songs.Count();
                 this.songs.Append(this.path);
                 label1.Text = this.count + " files loaded in.";
+
                 foreach (string filePath in this.songs)
                 {
-                    string fileName = Path.GetFileName(filePath);
-                    listBoxSongs.Items.Add(filePath);
-                }  
+                    if (filePath.Contains(".mp3") || filePath.Contains(".ogg")
+                        || filePath.Contains(".wav") || filePath.Contains(".flac"))
+                    {
+                        this.songName = Path.GetFileName(filePath);
+                        listBoxSongs.Items.Add(filePath);
+                    }
+                }
             }
             else
             {
@@ -61,10 +70,11 @@ namespace musicplayer
 
         private void btnSelectSong_Click(object sender, EventArgs e)
         {
-            if(listBoxSongs.SelectedItem != null)
+            if (listBoxSongs.SelectedItem != null)
             {
                 string selectedItem = listBoxSongs.SelectedItem.ToString();
                 this.selectedSong = selectedItem;
+                label_name.Text = selectedItem.ToString().Trim();
             }
         }
 
@@ -86,30 +96,60 @@ namespace musicplayer
             try
             {
                 int currentItem = listBoxSongs.SelectedIndex;
-                
+
+
                 if (currentItem < listBoxSongs.Items.Count - 1)
                 {
                     object nextItem = listBoxSongs.Items[currentItem + 1];
-                    
+
                     if (nextItem != null)
                     {
                         player.URL = nextItem.ToString();
-                        if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") || 
+                        if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") ||
                             nextItem.ToString().Contains(".ogg") || nextItem.ToString().Contains(".wav"))
                         {
                             listBoxSongs.SelectedIndex = currentItem + 1;
                             player.Ctlcontrols.play();
+                            label_name.Text = nextItem.ToString();
                         }
                         else
                         {
                             MessageBox.Show("Bestand niet in ondersteund formaat!");
                         }
+
                     }
                 }
             }
             catch (System.Windows.Forms.AxHost.InvalidActiveXStateException ex)
             {
                 MessageBox.Show("InvalidActiveXStateException occurred: " + ex.Message);
+            }
+        }
+
+        // Of de status veranderd van de mediaplayer, IS de media ge-eindigt. Speel dan het volgende nummer af.
+        void Player_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            if ((WMPLib.WMPPlayState)e.newState == WMPLib.WMPPlayState.wmppsMediaEnded)
+            {
+                try
+                {
+                    int currentItem = listBoxSongs.SelectedIndex;
+                    if (currentItem < listBoxSongs.Items.Count - 1)
+                    {
+                        object nextItem = listBoxSongs.Items[currentItem + 1];
+                        if (nextItem != null && (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac")
+                            || nextItem.ToString().Contains(".ogg") || nextItem.ToString().Contains(".wav")))
+                        {
+                            player.URL = nextItem.ToString();
+                            player.Ctlcontrols.play();
+                            listBoxSongs.SelectedIndex = currentItem + 1;
+                            label_name.Text = nextItem.ToString();
+                        }
+                    }
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("Error in PlaySateChange " + ex.Message);
+                }
             }
         }
 
@@ -120,11 +160,11 @@ namespace musicplayer
 
         private void btnFolderSelect_Click_1(object sender, EventArgs e)
         {
-                FolderBrowserDialog dialog = new FolderBrowserDialog();
-                dialog.ShowDialog();
-                string searchQuery = dialog.SelectedPath;
-                SetPath(searchQuery);
-                InsertIntoListBox();
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.ShowDialog();
+            string searchQuery = dialog.SelectedPath;
+            SetPath(searchQuery);
+            InsertIntoListBox();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -139,7 +179,7 @@ namespace musicplayer
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying) 
+            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 p_bar.Maximum = (int)player.Ctlcontrols.currentItem.duration;
                 p_bar.Value = (int)player.Ctlcontrols.currentPosition;
@@ -149,9 +189,9 @@ namespace musicplayer
                 labelTrackStart.Text = player.Ctlcontrols.currentPositionString;
                 labelTrackEnd.Text = player.Ctlcontrols.currentItem.durationString.ToString();
             }
-            catch 
+            catch
             {
-            
+
             }
         }
 
@@ -179,6 +219,40 @@ namespace musicplayer
         {
             player.settings.volume = trackVolume.Value;
             labelVolume.Text = trackVolume.Value.ToString() + "%";
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int currentItem = listBoxSongs.SelectedIndex;
+
+                if (currentItem < listBoxSongs.Items.Count + 1)
+                {
+                    object nextItem = listBoxSongs.Items[currentItem - 1];
+
+                    if (nextItem != null)
+                    {
+                        player.URL = nextItem.ToString();
+                        if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") ||
+                            nextItem.ToString().Contains(".ogg") || nextItem.ToString().Contains(".wav"))
+                        {
+                            listBoxSongs.SelectedIndex = currentItem - 1;
+                            player.Ctlcontrols.play();
+                            label_name.Text = nextItem.ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bestand niet in ondersteund formaat!");
+                        }
+
+                    }
+                }
+            }
+            catch (System.Windows.Forms.AxHost.InvalidActiveXStateException ex)
+            {
+                MessageBox.Show("InvalidActiveXStateException occurred: " + ex.Message);
+            }
         }
     }
 }
