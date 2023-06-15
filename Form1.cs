@@ -97,7 +97,6 @@ namespace musicplayer
             {
                 int currentItem = listBoxSongs.SelectedIndex;
 
-
                 if (currentItem < listBoxSongs.Items.Count - 1)
                 {
                     object nextItem = listBoxSongs.Items[currentItem + 1];
@@ -118,6 +117,10 @@ namespace musicplayer
                         }
 
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Het 'volgende' bestand bestaat niet.");
                 }
             }
             catch (System.Windows.Forms.AxHost.InvalidActiveXStateException ex)
@@ -232,29 +235,32 @@ namespace musicplayer
                     if (currentItem < listBoxSongs.Items.Count + 1)
                     {
                         object nextItem = listBoxSongs.Items[currentItem - 1];
-
-                        if (nextItem != null)
-                        {
-                            player.URL = nextItem.ToString();
-                            if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") ||
-                                nextItem.ToString().Contains(".ogg") || nextItem.ToString().Contains(".wav"))
+                            if (nextItem != null)
                             {
-                                listBoxSongs.SelectedIndex = currentItem - 1;
-                                player.Ctlcontrols.play();
-                                label_name.Text = nextItem.ToString();
+                                player.URL = nextItem.ToString();
+                                if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") ||
+                                    nextItem.ToString().Contains(".ogg") || nextItem.ToString().Contains(".wav"))
+                                {
+                                    listBoxSongs.SelectedIndex = currentItem - 1;
+                                    player.Ctlcontrols.play();
+                                    label_name.Text = nextItem.ToString();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Bestand niet in ondersteund formaat!");
+                                }
+
                             }
                             else
                             {
-                                MessageBox.Show("Bestand niet in ondersteund formaat!");
-                            }
-
-                        }
+                                MessageBox.Show("Geen vorig bestand beschikbaar.");
+                            }  
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("No previous item available.");
+                    MessageBox.Show("Het 'vorige' bestand bestaat niet.");
                 }
             }
             catch (System.Windows.Forms.AxHost.InvalidActiveXStateException ex)
