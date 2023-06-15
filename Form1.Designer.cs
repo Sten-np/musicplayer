@@ -231,6 +231,7 @@ namespace musicplayer
             this.trackVolume.Size = new System.Drawing.Size(45, 202);
             this.trackVolume.TabIndex = 11;
             this.trackVolume.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trackVolume.Scroll += new System.EventHandler(this.trackVolume_Scroll);
             // 
             // TextVolume
             // 
@@ -327,9 +328,9 @@ namespace musicplayer
             this.playlistRemove.BackColor = System.Drawing.Color.OrangeRed;
             this.playlistRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playlistRemove.ForeColor = System.Drawing.Color.White;
-            this.playlistRemove.Location = new System.Drawing.Point(549, 136);
+            this.playlistRemove.Location = new System.Drawing.Point(386, 138);
             this.playlistRemove.Name = "playlistRemove";
-            this.playlistRemove.Size = new System.Drawing.Size(75, 23);
+            this.playlistRemove.Size = new System.Drawing.Size(40, 23);
             this.playlistRemove.TabIndex = 18;
             this.playlistRemove.Text = "-";
             this.playlistRemove.UseVisualStyleBackColor = false;
@@ -340,9 +341,9 @@ namespace musicplayer
             this.playlistAdd.BackColor = System.Drawing.Color.OrangeRed;
             this.playlistAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playlistAdd.ForeColor = System.Drawing.Color.White;
-            this.playlistAdd.Location = new System.Drawing.Point(633, 136);
+            this.playlistAdd.Location = new System.Drawing.Point(432, 138);
             this.playlistAdd.Name = "playlistAdd";
-            this.playlistAdd.Size = new System.Drawing.Size(75, 23);
+            this.playlistAdd.Size = new System.Drawing.Size(45, 23);
             this.playlistAdd.TabIndex = 19;
             this.playlistAdd.Text = "+";
             this.playlistAdd.UseVisualStyleBackColor = false;

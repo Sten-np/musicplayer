@@ -26,6 +26,8 @@ namespace musicplayer
         public MusicPlayerApp()
         {
             InitializeComponent();
+            trackVolume.Value = 50;
+            labelVolume.Text = "50%";
             player.Hide();
         }
 
@@ -171,6 +173,12 @@ namespace musicplayer
         private void playlistRemove_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void trackVolume_Scroll(object sender, EventArgs e)
+        {
+            player.settings.volume = trackVolume.Value;
+            labelVolume.Text = trackVolume.Value.ToString() + "%";
         }
     }
 }
