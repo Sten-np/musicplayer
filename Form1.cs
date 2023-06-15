@@ -227,26 +227,34 @@ namespace musicplayer
             {
                 int currentItem = listBoxSongs.SelectedIndex;
 
-                if (currentItem < listBoxSongs.Items.Count + 1)
+                if (currentItem > 0)
                 {
-                    object nextItem = listBoxSongs.Items[currentItem - 1];
-
-                    if (nextItem != null)
+                    if (currentItem < listBoxSongs.Items.Count + 1)
                     {
-                        player.URL = nextItem.ToString();
-                        if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") ||
-                            nextItem.ToString().Contains(".ogg") || nextItem.ToString().Contains(".wav"))
-                        {
-                            listBoxSongs.SelectedIndex = currentItem - 1;
-                            player.Ctlcontrols.play();
-                            label_name.Text = nextItem.ToString();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Bestand niet in ondersteund formaat!");
-                        }
+                        object nextItem = listBoxSongs.Items[currentItem - 1];
 
+                        if (nextItem != null)
+                        {
+                            player.URL = nextItem.ToString();
+                            if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") ||
+                                nextItem.ToString().Contains(".ogg") || nextItem.ToString().Contains(".wav"))
+                            {
+                                listBoxSongs.SelectedIndex = currentItem - 1;
+                                player.Ctlcontrols.play();
+                                label_name.Text = nextItem.ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Bestand niet in ondersteund formaat!");
+                            }
+
+                        }
                     }
+
+                }
+                else
+                {
+                    MessageBox.Show("No previous item available.");
                 }
             }
             catch (System.Windows.Forms.AxHost.InvalidActiveXStateException ex)
