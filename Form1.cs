@@ -162,5 +162,15 @@ namespace musicplayer
         {
             player.settings.setMode("loop", true);
         }
+
+        private void playlistAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void playlistRemove_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
