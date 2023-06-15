@@ -55,6 +55,8 @@ namespace musicplayer
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.song_name = new System.Windows.Forms.Label();
             this.artist_name = new System.Windows.Forms.Label();
+            this.label_name = new System.Windows.Forms.Label();
+            this.label_artist = new System.Windows.Forms.Label();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimalized)).BeginInit();
@@ -194,6 +196,7 @@ namespace musicplayer
             this.btnPrevious.TabIndex = 5;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnRepeat
             // 
@@ -236,7 +239,7 @@ namespace musicplayer
             // 
             // trackVolume
             // 
-            this.trackVolume.Location = new System.Drawing.Point(987, 183);
+            this.trackVolume.Location = new System.Drawing.Point(983, 195);
             this.trackVolume.Margin = new System.Windows.Forms.Padding(4);
             this.trackVolume.Maximum = 100;
             this.trackVolume.Name = "trackVolume";
@@ -358,11 +361,29 @@ namespace musicplayer
             this.artist_name.TabIndex = 20;
             this.artist_name.Text = "Artist";
             // 
+            // label_name
+            // 
+            this.label_name.AutoSize = true;
+            this.label_name.Location = new System.Drawing.Point(107, 143);
+            this.label_name.Name = "label_name";
+            this.label_name.Size = new System.Drawing.Size(0, 16);
+            this.label_name.TabIndex = 21;
+            // 
+            // label_artist
+            // 
+            this.label_artist.AutoSize = true;
+            this.label_artist.Location = new System.Drawing.Point(107, 167);
+            this.label_artist.Name = "label_artist";
+            this.label_artist.Size = new System.Drawing.Size(0, 16);
+            this.label_artist.TabIndex = 22;
+            // 
             // MusicPlayerApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1068, 554);
+            this.Controls.Add(this.label_artist);
+            this.Controls.Add(this.label_name);
             this.Controls.Add(this.artist_name);
             this.Controls.Add(this.song_name);
             this.Controls.Add(this.label1);
@@ -429,6 +450,8 @@ namespace musicplayer
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label song_name;
         private System.Windows.Forms.Label artist_name;
+        private System.Windows.Forms.Label label_name;
+        private System.Windows.Forms.Label label_artist;
     }
 }
 
