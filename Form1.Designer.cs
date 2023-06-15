@@ -53,13 +53,13 @@ namespace musicplayer
             this.label1 = new System.Windows.Forms.Label();
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-<<<<<<< HEAD
+
             this.playlistRemove = new System.Windows.Forms.Button();
             this.playlistAdd = new System.Windows.Forms.Button();
-=======
+
             this.song_name = new System.Windows.Forms.Label();
             this.label_name = new System.Windows.Forms.Label();
->>>>>>> song-info
+
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimalized)).BeginInit();
@@ -87,16 +87,16 @@ namespace musicplayer
             // pictureBox2
             // 
             this.pictureBox2.Image = global::musicplayer.Properties.Resources.maximize;
-<<<<<<< HEAD
+
             this.pictureBox2.Location = new System.Drawing.Point(910, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(48, 42);
-=======
+
             this.pictureBox2.Location = new System.Drawing.Point(1213, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(64, 52);
->>>>>>> song-info
+
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -104,13 +104,13 @@ namespace musicplayer
             // Minimalized
             // 
             this.Minimalized.Image = global::musicplayer.Properties.Resources.minimalise1;
-<<<<<<< HEAD
+
             this.Minimalized.Location = new System.Drawing.Point(723, 0);
             this.Minimalized.Margin = new System.Windows.Forms.Padding(2);
-=======
+
             this.Minimalized.Location = new System.Drawing.Point(964, 0);
             this.Minimalized.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
->>>>>>> song-info
+
             this.Minimalized.Name = "Minimalized";
             this.Minimalized.Size = new System.Drawing.Size(48, 42);
             this.Minimalized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -325,13 +325,13 @@ namespace musicplayer
             // btnFolderSelect
             // 
             this.btnFolderSelect.Image = global::musicplayer.Properties.Resources.folder1;
-<<<<<<< HEAD
+
             this.btnFolderSelect.Location = new System.Drawing.Point(341, 136);
             this.btnFolderSelect.Margin = new System.Windows.Forms.Padding(2);
-=======
+
             this.btnFolderSelect.Location = new System.Drawing.Point(455, 167);
             this.btnFolderSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
->>>>>>> song-info
+
             this.btnFolderSelect.Name = "btnFolderSelect";
             this.btnFolderSelect.Size = new System.Drawing.Size(41, 32);
             this.btnFolderSelect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -363,7 +363,7 @@ namespace musicplayer
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-<<<<<<< HEAD
+
             // playlistRemove
             // 
             this.playlistRemove.BackColor = System.Drawing.Color.OrangeRed;
@@ -389,7 +389,7 @@ namespace musicplayer
             this.playlistAdd.Text = "+";
             this.playlistAdd.UseVisualStyleBackColor = false;
             this.playlistAdd.Click += new System.EventHandler(this.playlistAdd_Click);
-=======
+
             // song_name
             // 
             this.song_name.AutoSize = true;
@@ -406,21 +406,21 @@ namespace musicplayer
             this.label_name.Name = "label_name";
             this.label_name.Size = new System.Drawing.Size(0, 16);
             this.label_name.TabIndex = 21;
->>>>>>> song-info
+
             // 
             // MusicPlayerApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
+
             this.ClientSize = new System.Drawing.Size(801, 450);
             this.Controls.Add(this.playlistAdd);
             this.Controls.Add(this.playlistRemove);
-=======
+
             this.ClientSize = new System.Drawing.Size(1068, 554);
             this.Controls.Add(this.label_name);
             this.Controls.Add(this.song_name);
->>>>>>> song-info
+
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFolderSelect);
             this.Controls.Add(this.labelTrackEnd);
@@ -483,13 +483,13 @@ namespace musicplayer
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox2;
-<<<<<<< HEAD
+
         private System.Windows.Forms.Button playlistRemove;
         private System.Windows.Forms.Button playlistAdd;
-=======
+
         private System.Windows.Forms.Label song_name;
         private System.Windows.Forms.Label label_name;
->>>>>>> song-info
+
     }
 }
 
