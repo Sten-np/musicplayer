@@ -21,6 +21,7 @@ namespace musicplayer
         private int count;
         private String path = @"";
         private String selectedSong = @"";
+        private Random random;
 
 
         //De constructor voor de class MusicPlayerApp. Met daarin de componenten die worden meteen ingeladen.
@@ -31,6 +32,7 @@ namespace musicplayer
             trackVolume.Value = 50;
             labelVolume.Text = "50%";
             player.Hide();
+            random = new Random();
             player.PlayStateChange += Player_PlayStateChange;
         }
 
@@ -291,6 +293,7 @@ namespace musicplayer
                     btnPrevious.BackColor = Color.DarkGray;
                     btnStop.BackColor = Color.DarkGray;
                     btnRepeat.BackColor = Color.DarkGray;
+                    btnShuffle.BackColor = Color.DarkGray;
                     btnSelectSong.BackColor = Color.DarkGray;
                     playlistAdd.BackColor = Color.DarkGray;
                     playlistRemove.BackColor = Color.DarkGray;
@@ -305,11 +308,39 @@ namespace musicplayer
                     btnPrevious.BackColor = Color.OrangeRed;
                     btnStop.BackColor = Color.OrangeRed;
                     btnRepeat.BackColor = Color.OrangeRed;
+                    btnShuffle.BackColor= Color.OrangeRed;
                     btnSelectSong.BackColor = Color.OrangeRed;
                     playlistAdd.BackColor = Color.OrangeRed;
                     playlistRemove.BackColor = Color.OrangeRed;
                     break;
             }
         }
-    }
+
+        private void btnShuffle_Click(object sender, EventArgs e)
+        {
+            ShuffleSongs();
+        }
+        private void ShuffleSongs()
+        {
+            // Randomly shuffle the songs array
+            int n = songs.Length;
+            while (n > 1)
+            {
+                n--;
+                int k = random.Next(n + 1);
+                string value = songs[k];
+                songs[k] = songs[n];
+                songs[n] = value;
+            }
+            listBoxSongs.Items.Clear();
+            foreach (string filePath in songs)
+            {
+                if (filePath.Contains(".mp3") || filePath.Contains(".ogg")
+                    || filePath.Contains(".wav") || filePath.Contains(".flac"))
+                {
+                    listBoxSongs.Items.Add(filePath);
+                }
+            }
+            }
+        }
 }
