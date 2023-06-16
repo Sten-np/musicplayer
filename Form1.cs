@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
 
 namespace musicplayer
 {
@@ -20,7 +21,6 @@ namespace musicplayer
         private int count;
         private String path = @"";
         private String selectedSong = @"";
-        private String songName;
 
 
         //De constructor voor de class MusicPlayerApp. Met daarin de componenten die worden meteen ingeladen.
@@ -45,19 +45,18 @@ namespace musicplayer
 
         public void InsertIntoListBox()
         {
-            if (Directory.Exists(this.path))
+            if (Directory.Exists(this.path)) // Als het gegeven pad bestaat, zet dan de inhoud van het pad in de property this.songs
             {
-                this.songs = Directory.GetFiles(this.path);
+                this.songs = Directory.GetFiles(this.path); // De inhoud wordt in een array gezet.
                 this.count = this.songs.Count();
-                this.songs.Append(this.path);
+                this.songs.Append(this.path); // Concat het volledige pad aan het bestandnaam, voor de playback.
                 label1.Text = this.count + " files loaded in.";
 
-                foreach (string filePath in this.songs)
+                foreach (string filePath in this.songs) // Loop alle array inhoudt door en zet het in de listbox.
                 {
                     if (filePath.Contains(".mp3") || filePath.Contains(".ogg")
                         || filePath.Contains(".wav") || filePath.Contains(".flac"))
                     {
-                        this.songName = Path.GetFileName(filePath);
                         listBoxSongs.Items.Add(filePath);
                     }
                 }
@@ -74,7 +73,7 @@ namespace musicplayer
             {
                 string selectedItem = listBoxSongs.SelectedItem.ToString();
                 this.selectedSong = selectedItem;
-                label_name.Text = selectedItem.ToString().Trim();
+                getSongName(selectedItem);
             }
         }
 
@@ -109,7 +108,7 @@ namespace musicplayer
                         {
                             listBoxSongs.SelectedIndex = currentItem + 1;
                             player.Ctlcontrols.play();
-                            label_name.Text = nextItem.ToString();
+                            getSongName(nextItem.ToString());
                         }
                         else
                         {
@@ -243,7 +242,7 @@ namespace musicplayer
                                 {
                                     listBoxSongs.SelectedIndex = currentItem - 1;
                                     player.Ctlcontrols.play();
-                                    label_name.Text = nextItem.ToString();
+                                    getSongName(nextItem.ToString());
                                 }
                                 else
                                 {
@@ -267,6 +266,12 @@ namespace musicplayer
             {
                 MessageBox.Show("InvalidActiveXStateException occurred: " + ex.Message);
             }
+        }
+
+        private void getSongName(String selectedItem)
+        {
+            string fileName = Path.GetFileNameWithoutExtension(selectedItem);
+            label_name.Text = fileName;
         }
     }
 }
