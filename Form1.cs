@@ -273,5 +273,43 @@ namespace musicplayer
             string fileName = Path.GetFileNameWithoutExtension(selectedItem);
             label_name.Text = fileName;
         }
+
+        private bool isDarkMode = false;
+
+        private void Btn_darkmode_Click(object sender, EventArgs e)
+        {
+            isDarkMode = !isDarkMode;
+
+            switch (isDarkMode)
+            {
+                case true:
+                    BackColor = Color.SlateGray;
+                    TopPanel.BackColor = Color.DarkGray;
+                    listBoxSongs.BackColor = Color.DarkGray;
+                    btnNext.BackColor = Color.DarkGray;
+                    btnPlayPause.BackColor = Color.DarkGray;
+                    btnPrevious.BackColor = Color.DarkGray;
+                    btnStop.BackColor = Color.DarkGray;
+                    btnRepeat.BackColor = Color.DarkGray;
+                    btnSelectSong.BackColor = Color.DarkGray;
+                    playlistAdd.BackColor = Color.DarkGray;
+                    playlistRemove.BackColor = Color.DarkGray;
+                break;
+
+                case false:
+                    BackColor = SystemColors.Control;
+                    listBoxSongs.BackColor = SystemColors.Control;
+                    TopPanel.BackColor = Color.LightCyan;
+                    btnNext.BackColor = Color.OrangeRed;
+                    btnPlayPause.BackColor = Color.OrangeRed;
+                    btnPrevious.BackColor = Color.OrangeRed;
+                    btnStop.BackColor = Color.OrangeRed;
+                    btnRepeat.BackColor = Color.OrangeRed;
+                    btnSelectSong.BackColor = Color.OrangeRed;
+                    playlistAdd.BackColor = Color.OrangeRed;
+                    playlistRemove.BackColor = Color.OrangeRed;
+                    break;
+            }
+        }
     }
 }
