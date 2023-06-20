@@ -21,7 +21,7 @@ namespace musicplayer
         private int count;
         private String path = @"";
         private String selectedSong = @"";
-        private Random random;
+        private readonly Random random;
 
 
         //De constructor voor de class MusicPlayerApp. Met daarin de componenten die worden meteen ingeladen.
@@ -49,10 +49,9 @@ namespace musicplayer
         {
             if (Directory.Exists(this.path)) // Als het gegeven pad bestaat, zet dan de inhoud van het pad in de property this.songs
             {
+                listBoxSongs.Items.Clear();
                 this.songs = Directory.GetFiles(this.path); // De inhoud wordt in een array gezet.
-                this.count = this.songs.Count();
                 this.songs.Append(this.path); // Concat het volledige pad aan het bestandnaam, voor de playback.
-                label1.Text = this.count + " files loaded in.";
 
                 foreach (string filePath in this.songs) // Loop alle array inhoudt door en zet het in de listbox.
                 {
@@ -62,6 +61,8 @@ namespace musicplayer
                         listBoxSongs.Items.Add(filePath);
                     }
                 }
+                this.count = listBoxSongs.Items.Count;
+                label1.Text = this.count + " files loaded in.";
             }
             else
             {
@@ -116,7 +117,6 @@ namespace musicplayer
                         {
                             MessageBox.Show("Bestand niet in ondersteund formaat!");
                         }
-
                     }
                 }
                 else
@@ -135,24 +135,20 @@ namespace musicplayer
         {
             if ((WMPLib.WMPPlayState)e.newState == WMPLib.WMPPlayState.wmppsMediaEnded)
             {
-                try
+                int currentItem = listBoxSongs.SelectedIndex;
+                if (currentItem < listBoxSongs.Items.Count + 1)
                 {
-                    int currentItem = listBoxSongs.SelectedIndex;
-                    if (currentItem < listBoxSongs.Items.Count - 1)
+                    try
                     {
                         object nextItem = listBoxSongs.Items[currentItem + 1];
-                        if (nextItem != null && (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac")
-                            || nextItem.ToString().Contains(".ogg") || nextItem.ToString().Contains(".wav")))
-                        {
-                            player.URL = nextItem.ToString();
-                            player.Ctlcontrols.play();
-                            listBoxSongs.SelectedIndex = currentItem + 1;
-                            label_name.Text = nextItem.ToString();
-                        }
+                        player.URL = nextItem.ToString();
+                        player.Ctlcontrols.play();
+                        label_name.Text = player.playState.ToString();
                     }
-                }catch(Exception ex)
-                {
-                    MessageBox.Show("Error in PlaySateChange " + ex.Message);
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error occurred while playing the next song: " + ex.Message);
+                    }
                 }
             }
         }
@@ -211,7 +207,27 @@ namespace musicplayer
 
         private void playlistAdd_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                
+                OpenFileDialog fileDialog = new OpenFileDialog();
+                fileDialog.ShowDialog();
+                String file = fileDialog.FileName.ToString();
+                this.songs.Append(file);
+                if (file != null)
+                {
+                    listBoxSongs.Items.Add(file);
+                    this.count = listBoxSongs.Items.Count;
+                    label1.Text = this.count + " files loaded in.";
+                }
+                else
+                {
+                    MessageBox.Show("No file got selected");
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error in playlistAdd" + ex.Message);
+            }
         }
 
         private void playlistRemove_Click(object sender, EventArgs e)
