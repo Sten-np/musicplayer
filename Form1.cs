@@ -230,9 +230,17 @@ namespace musicplayer
             }
         }
 
+        //playlist remove is de functie die zegt dat een nummer uit de lijst moet gaan
         private void playlistRemove_Click(object sender, EventArgs e)
         {
-
+            if (listBoxSongs.SelectedItem != null)
+            {
+                int selectedIndex = listBoxSongs.SelectedIndex;
+                listBoxSongs.Items.RemoveAt(selectedIndex);
+                songs = songs.Where((_, index) => index != selectedIndex).ToArray();
+                count = listBoxSongs.Items.Count;
+                label1.Text = count + " files loaded in.";
+            }
         }
 
         private void trackVolume_Scroll(object sender, EventArgs e)
