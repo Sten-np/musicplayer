@@ -84,8 +84,19 @@ namespace musicplayer
         {
             try
             {
-                player.URL = this.selectedSong;
-                player.Ctlcontrols.play();
+                if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                {
+                    player.Ctlcontrols.pause();
+                }
+                else if (player.playState == WMPLib.WMPPlayState.wmppsPaused)
+                {
+                    player.Ctlcontrols.play();
+                }
+                else
+                {
+                    player.URL = this.selectedSong;
+                    player.Ctlcontrols.play();
+                }
             }
             catch (Exception ex)
             {
@@ -136,22 +147,35 @@ namespace musicplayer
             if ((WMPLib.WMPPlayState)e.newState == WMPLib.WMPPlayState.wmppsMediaEnded)
             {
                 int currentItem = listBoxSongs.SelectedIndex;
-                if (currentItem < listBoxSongs.Items.Count + 1)
+
+                if (currentItem < listBoxSongs.Items.Count - 1)
                 {
-                    try
+                    object nextItem = listBoxSongs.Items[currentItem + 1];
+
+                    if (nextItem != null)
                     {
-                        object nextItem = listBoxSongs.Items[currentItem + 1];
-                        player.URL = nextItem.ToString();
-                        player.Ctlcontrols.play();
-                        label_name.Text = player.playState.ToString();
+                        if (nextItem.ToString().Contains(".mp3") || nextItem.ToString().Contains(".flac") ||
+                            nextItem.ToString().Contains(".ogg") || nextItem.ToString().Contains(".wav"))
+                        {
+                            player.URL = nextItem.ToString();
+                            listBoxSongs.SelectedIndex = currentItem + 1;
+                            player.Ctlcontrols.play();
+                            getSongName(nextItem.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bestand niet in ondersteund formaat!");
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Error occurred while playing the next song: " + ex.Message);
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("No more songs in the playlist.");
+                    // You can add your logic here, such as stopping playback or handling end of playlist
                 }
             }
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -197,7 +221,14 @@ namespace musicplayer
 
         private void p_bar_MouseDown(object sender, MouseEventArgs e)
         {
-            player.Ctlcontrols.currentPosition = player.currentMedia.duration * e.X / p_bar.Width;
+            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                player.Ctlcontrols.currentPosition = player.currentMedia.duration * e.X / p_bar.Width;
+            }
+            else
+            {
+                MessageBox.Show("Please select a song first.");
+            }
         }
 
         private void btnRepeat_Click(object sender, EventArgs e)
@@ -209,13 +240,13 @@ namespace musicplayer
         {
             try
             {
-                
                 OpenFileDialog fileDialog = new OpenFileDialog();
                 fileDialog.ShowDialog();
                 String file = fileDialog.FileName.ToString();
                 this.songs.Append(file);
                 if (file != null)
                 {
+                    songs = songs.Append(file).ToArray();
                     listBoxSongs.Items.Add(file);
                     this.count = listBoxSongs.Items.Count;
                     label1.Text = this.count + " files loaded in.";
@@ -274,14 +305,12 @@ namespace musicplayer
                                 {
                                     MessageBox.Show("Bestand niet in ondersteund formaat!");
                                 }
-
                             }
                             else
                             {
                                 MessageBox.Show("Geen vorig bestand beschikbaar.");
                             }  
                     }
-
                 }
                 else
                 {
